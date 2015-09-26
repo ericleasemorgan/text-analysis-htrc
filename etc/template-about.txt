@@ -1,0 +1,80 @@
+<html>
+<head><title>##CORPUSNAME##</title></head>
+<body style='margin: 3%'>
+
+<h1><img align='right' src="./graphs/wordcloud-frequency.png" />##CORPUSNAME##</h1>
+
+<p>This page describes a corpus named ##CORPUSNAME## as created by a tool named the <a href="https://github.com/ericleasemorgan/HTRC-Workset-Browser">HTRC Workset Browser</a>.</p>
+
+<h2>General statistics</h2>
+
+<p>An analysis of the corpus's metadata provides an overview of what and how many things it contains, when things were published, and the sizes of its items:</p>
+
+<ul>
+<li>Number of items - ##CORPUSSIZE##</li>
+<li>Publication date range - ##DATEEARLIEST## to ##DATELATEST## (<a href="./graphs/catalog-histogram-dates.png">histogram</a> : <a href="./graphs/catalog-boxplot-dates.png">boxplot</a>)</li>
+<li>Sizes in pages - ##PAGESSHORTEST## to ##PAGESLONGEST## (<a href="./graphs/catalog-histogram-pages.png">histogram</a> : <a href="./graphs/catalog-boxplot-pages.png">boxplot</a>)</li>
+<li>Total number of pages - ##PAGESTOTAL##</li>
+<li>Average number of pages per item - ##PAGESAVERAGE##</li>
+</ul>
+
+<p>Possible correlations between numeric characteristics of records in the catalog can be illustrated through a <a href="./graphs/catalog-scatterplot.png">matrix of scatter plots</a>. As you would expect, there is almost always a correlation between pages and number of words. Are others exist? For more detail, <a href='./catalog.html'>browse the catalog</a>.</p>
+
+
+<h2>Notes on word usage</h2>
+
+<p>By counting and tabulating the words in each item of the corpus, it is possible to measure additional characteristics:</p>
+
+<ul>
+<li>Sizes of items in words - ##WORDSSHORTEST## to ##WORDSLONGEST## (<a href="./graphs/catalog-histogram-words.png">histogram</a> : <a href="./graphs/catalog-boxplot-words.png">boxplot</a>)</li>
+<li>Total number of words - ##WORDSTOTAL##</li>
+<li>Average number of words per item - ##WORDSAVERAGE##</li>
+<li>Total number of unique words - ##WORDSUNIQUE##</li>
+<li style='margin-bottom: 1em'>Most common words - ##FREQUENTWORDS##</li>
+</ul>
+
+<p>Perusing the list of <a href="./dictionary.db">all words in the corpus</a> (and their frequencies) as well as <a href="./unique.db">all unique words</a> can prove to be quite insightful. Are there one or more words in these lists connoting an idea of interest to you, and if so, then to what degree do these words occur in the corpus?</p>
+
+<p>To begin to see how words of your choosing occur in specific items, <a href='./search.cgi'>search the collection</a>.</p>
+
+<p>Through the creation of locally defined "dictionaries" or "lexicons", it is possible to count and tabulate how specific sets of words are used across a corpus. This particular corpus employs three such dictionaries -- sets of: 1) <a href="../etc/theme-names.txt">"big" names</a>, 2) <a href="../etc/theme-ideas.txt">"great" ideas</a>, and 3) <a href="../etc/theme-colors.txt">colors</a>. Their frequencies are listed below:</p>
+
+<ul>
+<li style='margin-bottom: 1em'>Most common "big" names - ##FREQUENTNAMES## For more detail, see the list of <a href="./dictionary-names.db">"big" name frequencies</a>.</li>
+<li style='margin-bottom: 1em'>Most common "great" ideas - ##FREQUENTIDEAS## For more detail, see the list of <a href="./dictionary-ideas.db">"great" idea frequencies</a>.</li>
+<li style='margin-bottom: 1em'>Colors - ##FREQUENTCOLORS## For more detail, see the list of <a href="./dictionary-colors.db">color word frequencies</a>.</li>
+</ul>
+
+<p>The distribution of words (histograms and boxplots) and the frequency of words (wordclouds), and how these frequencies "cluster" together can be illustrated:</p>
+
+<ul>
+<li>Histograms - <a href="./graphs/catalog-histogram-names.png">"big" names</a>; <a href="./graphs/catalog-histogram-ideas.png">"great" ideas</a>; <a href="./graphs/catalog-histogram-colors.png">colors</a></li>
+<li>Boxplots - <a href="./graphs/catalog-boxplot-names.png">"big" names</a>; <a href="./graphs/catalog-boxplot-ideas.png">"great" ideas</a>; <a href="./graphs/catalog-boxplot-colors.png">colors</a></li>
+<li>Wordclouds - <a href="./graphs/wordcloud-frequency.png">most common words</a>; <a href="./graphs/wordcloud-names.png">"big" names</a>; <a href="./graphs/wordcloud-ideas.png">"great" ideas</a>; <a href="./graphs/wordcloud-colors.png">colors</a></li>
+<li>Cluster dendrograms - <a href="./graphs/cluster-frequent.png">most common words</a>; <a href="./graphs/cluster-names.png">"big" names</a>; <a  href="./graphs/cluster-ideas.png">"great" ideas</a>; <a href="./graphs/cluster-colors.png">colors</a></li>
+</ul>
+
+
+<h2>Items of interest</h2>
+
+<p>Based on the information above, the following items (and their associated links) are of possible interest:</p>
+
+<ul>
+<li style='margin-bottom: 1em'>Shortest item (##PAGESSHORTEST## p.) - ##WORKSHORTEST##</li>
+<li style='margin-bottom: 1em'>Longest item (##PAGESLONGEST## p.) - ##WORKLONGEST##</li>
+<li style='margin-bottom: 1em'>Oldest item (##DATEEARLIEST##) - ##WORKOLDEST##</li>
+<li style='margin-bottom: 1em'>Most recent (##DATELATEST##) - ##WORKNEWEST##</li>
+<li style='margin-bottom: 1em'>Most thoughtful item - ##IDEASMOST##</li>
+<li style='margin-bottom: 1em'>Least thoughtful item - ##IDEASLEAST##</li>
+<li style='margin-bottom: 1em'>Biggest name dropper - ##NAMESMOST##</li>
+<li style='margin-bottom: 1em'>Fewest quotations - ##NAMESLEAST##</li>
+<li style='margin-bottom: 1em'>Most colorful - ##COLORSMOST##</li>
+<li style='margin-bottom: 1em'>Ugliest - ##COLORSLEAST##</li>
+</ul>
+
+
+<hr />
+<p style='text-align: right'>Eric Lease Morgan, Librarian<br />
+University of Notre Dame</p>
+</body>
+<html>

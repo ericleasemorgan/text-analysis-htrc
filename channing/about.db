@@ -1,0 +1,25 @@
+CORPUSNAME	channing
+CORPUSSIZE	36
+DATEEARLIEST	1810
+DATELATEST	1903
+PAGESSHORTEST	20
+PAGESLONGEST	636
+PAGESTOTAL	5001
+WORDSSHORTEST	1771
+WORDSLONGEST	106932
+WORDSTOTAL	639437
+WORDSUNIQUE	11307
+FREQUENTWORDS	god 4342|us 4043|may 3856|one 3674|great 3549|man 3229|men 3159|human 3138|would 3039|nature 2622|mind 2600|power 2496|must 2358|spirit 2282|life 2243|moral 2124|good 2105|much 2074|every 1957|love 1841|truth 1822|religion 1760|country 1648|cannot 1628|new 1601|
+FREQUENTIDEAS	god 4343|one 3675|man 3230|nature 2623|mind 2601|life 2244|good 2106|love 1842|truth 1823|religion 1761|world 1537|many 1476|war 1320|soul 1272|state 1256|slavery 1094|virtue 1082|time 992|government 950|cause 931|principle 794|law 782|duty 768|history 716|evil 708|
+FREQUENTNAMES	milton 319|james 54|newton 30|plato 28|locke 27|hume 18|bacon 13|gibbon 13|berkeley 10|smith 8|swift 8|shakespeare 8|gilbert 7|mill 7|pascal 5|rousseau 3|darwin 3|homer 3|boswell 3|augustine 2|goethe 2|virgil 2|chaucer 2|aurelius 2|spinoza 2|
+FREQUENTCOLORS	white 73|black 25|red 24|gray 19|green 17|blue 4|brown 4|purple 2|yellow 2|orange 2|
+WORKSHORTEST	uc2.ark:/13960/t9z03097h
+WORKLONGEST	hvd.32044054764675
+WORKOLDEST	nyp.33433012114306
+WORKNEWEST	uc2.ark:/13960/t6k07038k
+IDEASMOST	hvd.32044017094020
+IDEASLEAST	wu.89097194625
+NAMESMOST	hvd.32044050645993
+NAMESLEAST	hvd.32044029889854
+COLORSMOST	pst.000055472449
+COLORSLEAST	hvd.32044029889854

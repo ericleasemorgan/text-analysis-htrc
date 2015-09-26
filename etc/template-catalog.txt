@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+<title>
+##TITLE## catalog
+</title>
+<link rel="stylesheet" type="text/css" href="../etc/javascript/jquery.dataTables.css" /> 
+<script type="text/javascript" language="javascript" src="../etc/javascript/jquery-1.11.1.min.js"></script> 
+<script type="text/javascript" language="javascript" src="../etc/javascript/jquery.dataTables.min.js"></script> 
+<style>
+th, td { white-space: nowrap; }
+</style>
+<script type="text/javascript" charset="utf-8">
+
+/* Formatting function for row details - modify as you need */
+function format ( d ) {
+
+    // `d` is the original data object for the row
+    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+        '<tr>'+
+            '<td>Full title:</td>'+
+            '<td>'+d.title+'</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>Links:</td>'+
+            '<td><a href="'+d.hathitrust+'">HathiTrust</a> : <a href="'+d.worldcat+'">WorldCat</a> : <a href="./text/'+d.id+'.txt">plain text</a> : <a href="./json/'+d.id+'.json">JSON</a> : <a href="'+d.marc+'">MARC</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>identifier:</td>'+
+            '<td>'+d.id+'</td>'+
+        '</tr>'+
+    '</table>';
+}
+ 
+$(document).ready(function() {
+    var table = $('#catalog').DataTable( {
+        "data": [##DATA##],
+        "searching": false,
+        "pageLength": 20,
+        "columns": [
+            {
+                "className":      'details-control',
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": ''
+            },
+            { "data": "shortTitle" },
+            { "data": "date" },
+            { "data": "pages" },
+            { "data": "words" },
+            { "data": "language" },
+            { "data": "color" },
+            { "data": "names" },
+            { "data": "ideas" }
+        ],
+        "order": [[1, 'asc']]
+    } );
+     
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+ 
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+ 
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
+    
+    // Add event listener for opening and closing details
+    $('#catalog tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+ 
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()) ).show();
+            tr.addClass('shown');
+        }
+    } );
+} );
+</script> 
+</head>
+<body>
+<h1>
+##TITLE## catalog
+</h1>
+<div>
+Toggle columns: &nbsp; 
+<a class="toggle-vis" data-column="1">Title</a> &nbsp; 
+<a class="toggle-vis" data-column="2">Date</a> &nbsp; 
+<a class="toggle-vis" data-column="3">Pages</a> &nbsp; 
+<a class="toggle-vis" data-column="4">Words</a> &nbsp; 
+<a class="toggle-vis" data-column="5">Language</a> &nbsp; 
+<a class="toggle-vis" data-column="6">Color</a> &nbsp; 
+<a class="toggle-vis" data-column="7">Names</a> &nbsp; 
+<a class="toggle-vis" data-column="8">Ideas</a>
+				</div>
+				<div id="dataTables_wrapper">
+<table id="catalog" class="display compact" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Pages</th>
+                <th>Words</th>
+                <th>Language</th>
+                <th>Color</th>
+                <th>Names</th>
+                <th>Ideas</th>
+            </tr>
+        </thead>
+</table></div>
+</body>
+</html>

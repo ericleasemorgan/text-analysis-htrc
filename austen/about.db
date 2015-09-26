@@ -1,0 +1,25 @@
+CORPUSNAME	austen
+CORPUSSIZE	6
+DATEEARLIEST	1816
+DATELATEST	1918
+PAGESSHORTEST	348
+PAGESLONGEST	1046
+PAGESTOTAL	3166
+WORDSSHORTEST	38557
+WORDSLONGEST	83439
+WORDSTOTAL	388132
+WORDSUNIQUE	12448
+FREQUENTWORDS	could 4043|would 3590|mr. 2986|mrs. 2561|must 2305|said 2196|one 2171|much 2137|miss 2021|v. 1870|every 1649|think 1594|well 1568|might 1528|never 1512|little 1494|time 1492|know 1440|good 1413|nothing 1280|though 1194|soon 1184|without 1154|great 1134|lady 1116|
+FREQUENTIDEAS	one 2172|time 1493|good 1414|man 1015|many 734|family 677|mind 626|love 580|pleasure 497|life 487|world 475|happiness 400|opinion 362|idea 344|state 255|sense 251|change 240|nature 232|matter 216|particular 189|knowledge 170|pain 170|truth 166|evil 150|beauty 146|
+FREQUENTNAMES	smith 255|james 121|shakespeare 28|berkeley 21|mill 11|milton 8|gilbert 8|bacon 7|homer 6|swift 6|locke 5|chaucer 4|fielding 4|melville 4|goethe 3|hume 3|plato 3|aurelius 3|sterne 3|spinoza 3|dante 3|boswell 3|hobbes 3|newton 2|descartes 2|
+FREQUENTCOLORS	white 59|black 50|green 33|red 33|brown 29|blue 21|gray 13|yellow 13|purple 5|orange 5|
+WORKSHORTEST	hvd.32044086796216
+WORKLONGEST	dul1.ark:/13960/t4th9rm8z
+WORKOLDEST	dul1.ark:/13960/t4th9rm8z
+WORKNEWEST	mdp.39015007047361
+IDEASMOST	hvd.32044086796216
+IDEASLEAST	hvd.32044015363104
+NAMESMOST	hvd.32044015363104
+NAMESLEAST	dul1.ark:/13960/t4th9rm8z
+COLORSMOST	hvd.32044015363104
+COLORSLEAST	mdp.39015007047361

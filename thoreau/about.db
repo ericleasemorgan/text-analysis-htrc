@@ -1,0 +1,25 @@
+CORPUSNAME	thoreau
+CORPUSSIZE	32
+DATEEARLIEST	1866
+DATELATEST	1953
+PAGESSHORTEST	38
+PAGESLONGEST	556
+PAGESTOTAL	7918
+WORDSSHORTEST	1201
+WORDSLONGEST	64988
+WORDSTOTAL	864751
+WORDSUNIQUE	23456
+FREQUENTWORDS	one 7020|like 4212|see 3928|would 3603|man 3520|may 3071|two 2826|us 2670|time 2626|still 2442|though 2389|day 2369|much 2365|many 2345|men 2329|water 2292|life 2256|little 2211|long 2162|could 2134|yet 2080|river 2033|first 1981|new 1974|even 1943|
+FREQUENTIDEAS	one 7021|man 3521|time 2627|many 2346|life 2257|nature 1741|good 1542|world 1199|love 921|state 671|mind 530|god 508|sense 479|history 446|form 424|truth 419|beauty 418|experience 366|government 337|family 316|particular 285|poetry 285|law 279|knowledge 276|art 273|
+FREQUENTNAMES	mill 112|swift 102|james 100|smith 99|homer 92|shakespeare 75|chaucer 40|milton 36|goethe 33|plato 29|virgil 28|bacon 23|dante 20|aristotle 19|tolstoy 17|plutarch 16|darwin 16|herodotus 13|newton 11|augustine 8|gilbert 8|copernicus 7|berkeley 7|plotinus 7|lucretius 6|
+FREQUENTCOLORS	white 1822|black 837|green 789|red 757|brown 593|blue 518|yellow 511|gray 313|purple 204|orange 31|
+WORKSHORTEST	hvd.32044014179121
+WORKLONGEST	hvd.hn3qhv
+WORKOLDEST	aeu.ark:/13960/t0ks7hd5n
+WORKNEWEST	uc1.$b441079
+IDEASMOST	mdp.39015080471231
+IDEASLEAST	pst.000006205607
+NAMESMOST	hvd.32044019031079
+NAMESLEAST	hvd.32044014179121
+COLORSMOST	uc2.ark:/13960/t7sn09j9n
+COLORSLEAST	hvd.32044019031079

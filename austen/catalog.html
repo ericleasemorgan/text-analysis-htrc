@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+<title>
+austen catalog
+</title>
+<link rel="stylesheet" type="text/css" href="../etc/javascript/jquery.dataTables.css" /> 
+<script type="text/javascript" language="javascript" src="../etc/javascript/jquery-1.11.1.min.js"></script> 
+<script type="text/javascript" language="javascript" src="../etc/javascript/jquery.dataTables.min.js"></script> 
+<style>
+th, td { white-space: nowrap; }
+</style>
+<script type="text/javascript" charset="utf-8">
+
+/* Formatting function for row details - modify as you need */
+function format ( d ) {
+
+    // `d` is the original data object for the row
+    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+        '<tr>'+
+            '<td>Full title:</td>'+
+            '<td>'+d.title+'</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>Links:</td>'+
+            '<td><a href="'+d.hathitrust+'">HathiTrust</a> : <a href="'+d.worldcat+'">WorldCat</a> : <a href="./text/'+d.id+'.txt">plain text</a> : <a href="./json/'+d.id+'.json">JSON</a> : <a href="'+d.marc+'">MARC</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>identifier:</td>'+
+            '<td>'+d.id+'</td>'+
+        '</tr>'+
+    '</table>';
+}
+ 
+$(document).ready(function() {
+    var table = $('#catalog').DataTable( {
+        "data": [{ "id": "dul1.ark:/13960/t4th9rm8z", "shortTitle": "Mansfield Park : a novel : in three volumes / by t...", "title": "Mansfield Park : a novel : in three volumes / by the author of \"Pride and prejudice.\"", "date": "1816", "pages": "1046", "hathitrust": "http://hdl.handle.net/2027/dul1.ark:/13960/t4th9rm8z", "language": "eng", "marc": "http://catalog.hathitrust.org/api/volumes/full/htid/dul1.ark:/13960/t4th9rm8z.json", "worldcat": "http://worldcat.org/oclc/27700091", "words": "74091", "color": "0.0553373554143", "names": "0.0202453739321", "ideas": "4.12195813257" }, { "id": "hvd.32044015363104", "shortTitle": "Emma : a novel / by Jane Austen....", "title": "Emma : a novel / by Jane Austen.", "date": "1877", "pages": "496", "hathitrust": "http://hdl.handle.net/2027/hvd.32044015363104", "language": "eng", "marc": "http://catalog.hathitrust.org/api/volumes/full/htid/hvd.32044015363104.json", "worldcat": "http://worldcat.org/oclc/13304183", "words": "83439", "color": "0.111458670406", "names": "0.197749253946", "ideas": "3.96816836252" }, { "id": "hvd.32044019895564", "shortTitle": "Sense and sensibility / by Jane Austen; ed. with a...", "title": "Sense and sensibility / by Jane Austen; ed. with an introduction, notes and queries by Edwin L. Miller.", "date": "1913", "pages": "376", "hathitrust": "http://hdl.handle.net/2027/hvd.32044019895564", "language": "eng", "marc": "http://catalog.hathitrust.org/api/volumes/full/htid/hvd.32044019895564.json", "worldcat": "http://worldcat.org/oclc/9942002", "words": "59463", "color": "0.0588601315104", "names": "0.139582597582", "ideas": "4.15384356659" }, { "id": "hvd.32044086796216", "shortTitle": "Persuasion / by Jane Austen....", "title": "Persuasion / by Jane Austen.", "date": "1906", "pages": "348", "hathitrust": "http://hdl.handle.net/2027/hvd.32044086796216", "language": "eng", "marc": "http://catalog.hathitrust.org/api/volumes/full/htid/hvd.32044086796216.json", "worldcat": "http://worldcat.org/oclc/3356350", "words": "38557", "color": "0.0518712555437", "names": "0.194517208289", "ideas": "4.2741914568" }, { "id": "hvd.32044086796422", "shortTitle": "Northanger Abbey : A novel / By Jane Austen ......", "title": "Northanger Abbey : A novel / By Jane Austen ...", "date": "1848", "pages": "456", "hathitrust": "http://hdl.handle.net/2027/hvd.32044086796422", "language": "eng", "marc": "http://catalog.hathitrust.org/api/volumes/full/htid/hvd.32044086796422.json", "worldcat": "http://worldcat.org/oclc/81210082", "words": "73592", "color": "0.0625067942168", "names": "0.18752038265", "ideas": "4.18116099576" }, { "id": "mdp.39015007047361", "shortTitle": "Pride and prejudice / by Jane Austen; with an intr...", "title": "Pride and prejudice / by Jane Austen; with an introduction by William Dean Howells.", "date": "1918", "pages": "444", "hathitrust": "http://hdl.handle.net/2027/mdp.39015007047361", "language": "eng", "marc": "http://catalog.hathitrust.org/api/volumes/full/htid/mdp.39015007047361.json", "worldcat": "http://worldcat.org/oclc/8383316", "words": "58990", "color": "0.0271232412273", "names": "0.0440752669944", "ideas": "4.0464485506" }, ],
+        "searching": false,
+        "pageLength": 20,
+        "columns": [
+            {
+                "className":      'details-control',
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": ''
+            },
+            { "data": "shortTitle" },
+            { "data": "date" },
+            { "data": "pages" },
+            { "data": "words" },
+            { "data": "language" },
+            { "data": "color" },
+            { "data": "names" },
+            { "data": "ideas" }
+        ],
+        "order": [[1, 'asc']]
+    } );
+     
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+ 
+        // Get the column API object
+        var column = table.column( $(this).attr('data-column') );
+ 
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
+    
+    // Add event listener for opening and closing details
+    $('#catalog tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+ 
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()) ).show();
+            tr.addClass('shown');
+        }
+    } );
+} );
+</script> 
+</head>
+<body>
+<h1>
+austen catalog
+</h1>
+<div>
+Toggle columns: &nbsp; 
+<a class="toggle-vis" data-column="1">Title</a> &nbsp; 
+<a class="toggle-vis" data-column="2">Date</a> &nbsp; 
+<a class="toggle-vis" data-column="3">Pages</a> &nbsp; 
+<a class="toggle-vis" data-column="4">Words</a> &nbsp; 
+<a class="toggle-vis" data-column="5">Language</a> &nbsp; 
+<a class="toggle-vis" data-column="6">Color</a> &nbsp; 
+<a class="toggle-vis" data-column="7">Names</a> &nbsp; 
+<a class="toggle-vis" data-column="8">Ideas</a>
+				</div>
+				<div id="dataTables_wrapper">
+<table id="catalog" class="display compact" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Pages</th>
+                <th>Words</th>
+                <th>Language</th>
+                <th>Color</th>
+                <th>Names</th>
+                <th>Ideas</th>
+            </tr>
+        </thead>
+</table></div>
+</body>
+</html>
+
