@@ -1,0 +1,23 @@
+<html>
+<!-- template-initialize-collection.txt -->
+<head>
+<title>Initialize HathiTrust collection</title>
+</head>
+<body style='margin: 5%; font-size: large'>
+<h1>Initialize HathiTrust collection</h1>
+<p>Given an rsync file created by an algorithm of the HathiTrust Research Center, this form allows you to create a local cache of HathiTrust content, have some rudimentary analysis done against it, and read the the corpus "distantly". If you do not have an rsync file, then visit the <a href="https://sharc.hathitrust.org">Center</a> to create your own, or you can use any of the following files as sample data: <a href="../etc/rsync-cookery.sh">cookery</a>, <a href="../etc/rsync-lancaster.sh">Lancaster</a>, <a href="../etc/rsync-yeats.sh">Yeats</a>.</p> 
+<form enctype="multipart/form-data" action="./build-corpus.cgi" method="post">
+<table style='margin-left: 5%'>
+<tr><td style='text-align: right'>rsync file</td><td><input type="file" name="rsync" /></td></tr>
+<tr><td /><td><input type="submit" /></td></tr>
+</table>
+</form>
+<p>Please have patience. The process takes about 60 seconds, and even if the process times out, your collection may very well be created anyway.</p>
+<hr />
+<p style='text-align: right'>
+Eric Lease Morgan &amp; the Text Miners<br />
+January 8, 2016
+</p>
+</body>
+</html>
+

@@ -1,80 +1,58 @@
-#!/bin/bash
+#!/usr/bin/env python
 
-# build-corpus.cgi - via CGI and given an rsync shell script and a keyword, cache HathiTrust content and make it browsable
+# build-corpus.cgi - a CGI front-end to build-corpus.sh
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# December 27, 2015 - based on build-corpus.sh, and got it to work after sudo setsebool httpd_can_network_connect on. "Thank you, Michael Berkowski!"
+# January 7, 2016 - first investigations; based on make-everything.cgi from EEBO
 
-
-# print the magic lines and start output
-echo "Content-type: text/plain"
-echo
-echo "Building corpus"
 
 # configure
-ROOT=/var/www/html/hathitrust
-NAME=lancaster
-RSYNCSCRIPT=etc/rsync-lancaster.sh
+ROOT   = '/var/www/html/hathitrust'
+LOG    = 'tmp/log.txt'
+RSYNC  = 'tmp/rsync.sh'
+URL    = 'https://kilgour.library.nd.edu/hathitrust/'
+LENGTH = 8
 
-# stage #1 - initialize the directory structure for the corpus
-cd $ROOT
-rm -rf $NAME
-mkdir $NAME
-mkdir $NAME/json
-mkdir $NAME/index
-mkdir $NAME/text
-mkdir $NAME/graphs
+# require
+import cgi
+import cgitb
+import os
+import random
+import string
 
-# harvest the content
-chmod +x $RSYNCSCRIPT
-cp $RSYNCSCRIPT $NAME/json
-cd $NAME/json
-RSYNCSCRIPT=$( basename $RSYNCSCRIPT )
-/bin/bash ./$RSYNCSCRIPT
+# initialize
+cgitb.enable()
+os.chdir( ROOT )
 
-# get rid of "advanced" files, uncompress everything, and rename the balance
-rm *.advanced.*
-bunzip2 *.bz2
-for f in *.basic.json; do mv $f ${f//basic\.json}json ; done
+# read and parse the input of identifiers
+input = cgi.FieldStorage()
+rsync = input['rsync'].value
 
+# create a unique title (key) for this collection; see http://stackoverflow.com/questions/2257441/random-string-generation-with-upper-case-letters-and-digits-in-python
+title = os.environ[ 'REMOTE_USER' ] + '-' + ''.join( random.SystemRandom().choice( string.ascii_lowercase + string.digits ) for _ in range( LENGTH ) )
 
-# stage #2 - create the index
-cd ../..
-./bin/make-index.sh $NAME
+# save the identifiers to a file
+file = open( RSYNC, 'w' )
+file.write( rsync )
+file.close()
 
-# make dictionary
-./bin/make-dictionary.py $NAME/index/ > $NAME/dictionary.db
+# start the output
+print "Content-Type: text/plain"
+print 
+print title
 
-# extract unique words
-cat $NAME/dictionary.db | ./bin/list-unique.py  > $NAME/unique.db
+# build the shell command and echo it
+command = "/bin/bash ./bin/build-corpus.sh " + title + ' ' + RSYNC + " &>" + LOG 
+print command
 
+# do the work; Danger! Danger! Danger Will Robinson! Intruder alert! Danger! Danger!
+os.system( command )
 
-# stage #3 - create the catalog
-./bin/make-catalog.sh $NAME
+# echo contents of the log file
+with open( LOG, 'r' ) as input: print input.read()
 
+# echo the location of the newly created collection
+print URL + title
 
-# stage #4 - create sorted numeric reports
-./bin/calculate-size.sh   $NAME                      | sort -k2 -n -r > $NAME/sizes.db
-./bin/calculate-themes.sh $NAME etc/theme-colors.txt | sort -k2 -g -r > $NAME/calculated-colors.db
-./bin/calculate-themes.sh $NAME etc/theme-names.txt  | sort -k2 -g -r > $NAME/calculated-names.db
-./bin/calculate-themes.sh $NAME etc/theme-ideas.txt  | sort -k2 -g -r > $NAME/calculated-ideas.db
-
-# create reports, sorted by coefficient: colors, names, ideas
-./bin/calculate-themes.py -v $NAME/dictionary.db etc/theme-colors.txt > $NAME/dictionary-colors.db
-./bin/calculate-themes.py -v $NAME/dictionary.db etc/theme-names.txt  > $NAME/dictionary-names.db
-./bin/calculate-themes.py -v $NAME/dictionary.db etc/theme-ideas.txt  > $NAME/dictionary-ideas.db
-
-# create charts; R needs to be installed (oops!); commented out so people don't need R, yet
-./bin/make-graphs.sh $NAME
-
-
-# state 5 - analyze corpus and create pretty about page
-./bin/about.sh $NAME > $NAME/about.db
-./bin/about2html.py $NAME > $NAME/about.html
-
-
-# stage 6 - done
-echo "Done."
-exit 0
-
-
+# done
+exit
