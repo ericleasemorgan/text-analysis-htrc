@@ -34,10 +34,6 @@ printf "id\ttitle\tpublication date\tpage count\tHathiTrust URL\tlanguage\tMARC 
 # make the human-readable version
 ./bin/catalog2html.py ./collections/$NAME > ./collections/$NAME/catalog.html
 
-# make the search engine, as it may be, available
-cp ./etc/search.cgi ./collections/$NAME
-chmod +x ./collections/$NAME/search.cgi
-
 # done
 exit 0
 
