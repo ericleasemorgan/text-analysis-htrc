@@ -18,7 +18,7 @@ README - An introductory description to this, the HathiTrust Research Center Wor
 
 ## Quick start, the first part
 
-  Use these steps to get up and running quickly.
+  Use these steps to quickly get up and running.
 
     1. Create a HathiTrust Research Center "data capsule".
     
@@ -70,11 +70,11 @@ Once you have gotten this far, you will probably want to create your own collect
     
     5. Use the EF Rsync Script Generator algorithm to create an rsync file from the workset.
     
-    6. Download the rsync file to your local computer.
+    6. Download the resulting rsync file to your local computer.
     
     7. Using an identifiable name, upload the rsync file to the text-analysis-htrc/etc directory.
     
-    8. Build your collection:
+    8. Build your collection, for example:
     
          ./bin/build-corpus.sh mycollection ./etc/rsync-mycollection.sh
     
@@ -82,7 +82,7 @@ Once you have gotten this far, you will probably want to create your own collect
 
          cd ./collections/mycollecton; ls -al
   
-Requirements
+## Requirements
 
   The Browser requires a computer running a "sane" version of a Linux-ish
   operating system coupled with the Python scripting language. Few, if
@@ -97,17 +97,12 @@ Requirements
   Windows.
 
 
-License
+## License
 
   This software is distributed under the GNU General Public License.
-  
-  
-Installation
+    
 
-  [Describe how to install the Browser here.]
-  
-
-Usage
+## Usage
 
   Here is an outline of how the Browser is intended to be used:
 
@@ -143,18 +138,18 @@ Usage
   -- by design -- simple and foundational. You have been warned. 
 
 
-Manual
+## Manual
 
   [Here goes the documentation of the scripts.]
   
 
-Cookbook
+## Cookbook
 
   [This is a list of the ways the scripts can be chained together to do
   "kewl" stuff.]
   
 
---
+---
 Eric Lease Morgan, Librarian
 University of Notre Dame
 emorgan@nd.edu
