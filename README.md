@@ -16,15 +16,15 @@ README - An introductory description to this, the HathiTrust Research Center Wor
   The current home page of the Browser is https://github.com/ndlib/text-analysis-htrc
   
 
-Quick start, the first part
+## Quick start, the first part
 
-  Use these steps to get up an running quickly.
+  Use these steps to get up and running quickly.
 
     1. Create a HathiTrust Research Center "data capsule".
     
     2. Use SSH or VNC to connect to the capsule.
     
-    3. From the command line, use git to install the software:
+    3. From the command line, install the software:
     
          git clone https://github.com/ndlib/text-analysis-htrc.git
     
@@ -56,7 +56,7 @@ Quick start, the first part
     
          ./bin/build-corpus.sh baxter ./etc/rsync-baxter.sh
 
-Quick start, the second part
+## Quick start, the second part
 
 Once you have gotten this far, you will probably want to create your own collection. Here's how:
 
@@ -64,15 +64,15 @@ Once you have gotten this far, you will probably want to create your own collect
     
     2. Save the interesting items to a collection.
     
-    3. Download teh collection's metadata to your local computer.
+    3. Download the collection's metadata to your local computer.
     
     4. Upload the metadata into a HathiTrust Research Center "workset"
     
-    5. Use the EF Rsync Script Generator algorithm to create and rsync.sh file.
+    5. Use the EF Rsync Script Generator algorithm to create an rsync file from the workset.
     
-    6. Download the rsync.sh file to yoru local computer.
+    6. Download the rsync file to your local computer.
     
-    7. Using an identifiable name, upload the rsync.sh file to text-analysis-htrc/etc.
+    7. Using an identifiable name, upload the rsync file to the text-analysis-htrc/etc directory.
     
     8. Build your collection:
     
