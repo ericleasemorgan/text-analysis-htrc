@@ -1,0 +1,25 @@
+CORPUSNAME	./collections/austen
+CORPUSSIZE	6
+DATEEARLIEST	1877
+DATELATEST	1922
+PAGESSHORTEST	270
+PAGESLONGEST	522
+PAGESTOTAL	2466
+WORDSSHORTEST	38433
+WORDSLONGEST	73701
+WORDSTOTAL	371687
+WORDSUNIQUE	10827
+FREQUENTWORDS	could 4046|would 3584|mr. 2959|mrs. 2550|must 2293|said 2201|much 2129|one 2105|miss 1954|think 1576|might 1531|well 1527|every 1518|never 1494|little 1471|time 1458|know 1438|good 1362|nothing 1264|though 1174|soon 1173|without 1152|say 1122|great 1119|see 1088|
+FREQUENTIDEAS	one 2106|time 1459|good 1363|man 983|many 722|family 658|mind 627|love 526|pleasure 497|world 446|life 410|happiness 396|opinion 358|idea 344|state 248|change 236|sense 234|nature 216|matter 213|particular 190|knowledge 170|pain 170|truth 163|evil 145|beauty 144|
+FREQUENTNAMES	smith 238|james 97|berkeley 17|gilbert 6|mill 5|shakespeare 5|bacon 3|dante 3|darwin 3|goethe 3|milton 3|sterne 3|swift 3|aurelius 2|hume 2|newton 2|aeschylus 1|apollonius 1|aquinas 1|archimedes 1|aristophanes 1|aristotle 1|augustine 1|boswell 1|cervantes 1|
+FREQUENTCOLORS	white 43|black 41|green 26|red 20|blue 18|brown 14|gray 9|yellow 8|purple 5|orange 3|
+WORKSHORTEST	mdp.39015007028700
+WORKLONGEST	mdp.39015001796500
+WORKOLDEST	mdp.39015091627573
+WORKNEWEST	mdp.39015066076012
+IDEASMOST	mdp.39015007028700
+IDEASLEAST	mdp.39015004075662
+NAMESMOST	mdp.39015007028700
+NAMESLEAST	mdp.39015091627607
+COLORSMOST	mdp.39015091627573
+COLORSLEAST	mdp.39015001796500
