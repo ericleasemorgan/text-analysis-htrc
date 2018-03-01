@@ -22,25 +22,25 @@ echo "indexing $JSON"
 
 
 
-if [ -f "$NAME/index/$KEY.db" ]; then
+if [ -f "./collections/$NAME/index/$KEY.db" ]; then
 
-	echo "$NAME/index/$KEY.db exists" >&2
+	echo "./collections/$NAME/index/$KEY.db exists" >&2
 	
 else
 
 	# do the work
-	cat $JSON | $JSON2FREQUENCY -d > $NAME/index/$KEY.db
+	cat $JSON | $JSON2FREQUENCY -d > ./collections/$NAME/index/$KEY.db
 
 fi
 
-if [ -f "$NAME/text/$KEY.txt" ]; then
+if [ -f "./collections/$NAME/text/$KEY.txt" ]; then
 
-	echo "$NAME/text/$KEY.txt exists" >&2
+	echo "./collections/$NAME/text/$KEY.txt exists" >&2
 	
 else
 
 	# do the work
-	cat $JSON | $JSON2FREQUENCY -b > $NAME/text/$KEY.txt
+	cat $JSON | $JSON2FREQUENCY -b > ./collections/$NAME/text/$KEY.txt
 
 fi
 

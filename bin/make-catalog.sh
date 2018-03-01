@@ -20,23 +20,23 @@ if [ -z $NAME ]; then
 fi
 
 # initialize the database with the content from the json files
-./bin/make-catalog.py $NAME/ | sort > $NAME/catalog.db
+./bin/make-catalog.py ./collections/$NAME/ | sort > ./collections/$NAME/catalog.db
 
 # append: sizes, colors, names, ideas
-./bin/calculate-size.sh   $NAME                      | sort | cut -f2 | paste $NAME/catalog.db - > $NAME/catalog.tmp; mv $NAME/catalog.tmp $NAME/catalog.db
-./bin/calculate-themes.sh $NAME etc/theme-colors.txt | sort | cut -f2 | paste $NAME/catalog.db - > $NAME/catalog.tmp; mv $NAME/catalog.tmp $NAME/catalog.db
-./bin/calculate-themes.sh $NAME etc/theme-names.txt  | sort | cut -f2 | paste $NAME/catalog.db - > $NAME/catalog.tmp; mv $NAME/catalog.tmp $NAME/catalog.db
-./bin/calculate-themes.sh $NAME etc/theme-ideas.txt  | sort | cut -f2 | paste $NAME/catalog.db - > $NAME/catalog.tmp; mv $NAME/catalog.tmp $NAME/catalog.db
+./bin/calculate-size.sh   ./collections/$NAME                      | sort | cut -f2 | paste ./collections/$NAME/catalog.db - > ./collections/$NAME/catalog.tmp; mv ./collections/$NAME/catalog.tmp ./collections/$NAME/catalog.db
+./bin/calculate-themes.sh ./collections/$NAME etc/theme-colors.txt | sort | cut -f2 | paste ./collections/$NAME/catalog.db - > ./collections/$NAME/catalog.tmp; mv ./collections/$NAME/catalog.tmp ./collections/$NAME/catalog.db
+./bin/calculate-themes.sh ./collections/$NAME etc/theme-names.txt  | sort | cut -f2 | paste ./collections/$NAME/catalog.db - > ./collections/$NAME/catalog.tmp; mv ./collections/$NAME/catalog.tmp ./collections/$NAME/catalog.db
+./bin/calculate-themes.sh ./collections/$NAME etc/theme-ideas.txt  | sort | cut -f2 | paste ./collections/$NAME/catalog.db - > ./collections/$NAME/catalog.tmp; mv ./collections/$NAME/catalog.tmp ./collections/$NAME/catalog.db
 
 # add the human-readable header
-printf "id\ttitle\tpublication date\tpage count\tHathiTrust URL\tlanguage\tMARC URL\tWorldCat URL\tsize in words\tcolor coefficient\tname coefficient\tideas coefficient\n" | cat - $NAME/catalog.db > $NAME/catalog.tmp; mv $NAME/catalog.tmp $NAME/catalog.db
+printf "id\ttitle\tpublication date\tpage count\tHathiTrust URL\tlanguage\tMARC URL\tWorldCat URL\tsize in words\tcolor coefficient\tname coefficient\tideas coefficient\n" | cat - ./collections/$NAME/catalog.db > ./collections/$NAME/catalog.tmp; mv ./collections/$NAME/catalog.tmp ./collections/$NAME/catalog.db
 
 # make the human-readable version
-./bin/catalog2html.py $NAME > $NAME/catalog.html
+./bin/catalog2html.py ./collections/$NAME > ./collections/$NAME/catalog.html
 
 # make the search engine, as it may be, available
-cp ./etc/search.cgi $NAME
-chmod +x $NAME/search.cgi
+cp ./etc/search.cgi ./collections/$NAME
+chmod +x ./collections/$NAME/search.cgi
 
 # done
 exit 0
