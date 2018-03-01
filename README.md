@@ -13,43 +13,74 @@ README - An introductory description to this, the HathiTrust Research Center Wor
   in a manner never (really) possible before. The Browser is a tool for
   doing such "reading".
 
-  The current home page of the Browser is http://bit.ly/workset-browser
+  The current home page of the Browser is https://github.com/ndlib/text-analysis-htrc
   
-  An example of its current output is: http://bit.ly/browser-thoreau
 
+Quick start, the first part
 
-Quick start
+  Use these steps to get up an running quickly.
 
-    1. Download the software putting the bin and etc directories in the same directory
+    1. Create a HathiTrust Research Center "data capsule".
     
-    2. Change to the directory where the bin and etc directories have been saved.
+    2. Use SSH or VNC to connect to the capsule.
     
-    3. Build a collection by issuing the following command:
+    3. From the command line, use git to install the software:
     
-         ./bin/build-corpus.sh thoreau etc/rsync-thoreau.sh
+         git clone https://github.com/ndlib/text-analysis-htrc.git
+    
+    4. Change directories accordingly:
+    
+         cd text-analysis-htrc
+    
+    5. Make the scripts executable:
+    
+         chmod +x ./bin/*
 
-  If all goes well, the Browser will create a new directory named thoreau,
-  rsync a bunch o' JSON files from the HathiTrust to your computer, index
-  the JSON files, do some textual analysis against the corpus, create a
-  simple database ("catalog"), and create a few more reports.
-  
-  If you have R installed, as well as some of R's friends, then you can
-  optionally run the following command to generate some charts:
-  
-    ./bin/make-graphs.sh thoreau
-  
-  You can then peruse the files in the newly created thoreau directory. Of
-  special interest is the file named about.html because it summarizes the
-  collection. If you created the charts, then there ought to be no broken
-  links in the file. If the file is being served via a Web server, then
-  the search interface will work. If not, then you can still search the
-  collection with the following command:
-
-    ./bin/search.sh love thoreau | less
+    6. Search the sample collection:
     
-  If you got this far, then repeat the process for the other rsync files
-  found in the etc directory.
-  
+         ./bin/search.sh love austen
+         
+    7. Read the "about" page:
+    
+         firefox ./collections/austen/about.html
+
+    8. Browse the catalog:
+    
+         firefox ./collections/austen/catalog.html
+
+    9. Create an additional collection:
+    
+         ./bin/build-corpus.sh bronte ./etc/rsync-bronte.sh
+
+    10. Create an even bigger collection, and be patient:
+    
+         ./bin/build-corpus.sh baxter ./etc/rsync-baxter.sh
+
+Quick start, the second part
+
+Once you have gotten this far, you will probably want to create your own collection. Here's how:
+
+    1. Search & browse the HathiTrust for items of interest.
+    
+    2. Save the interesting items to a collection.
+    
+    3. Download teh collection's metadata to your local computer.
+    
+    4. Upload the metadata into a HathiTrust Research Center "workset"
+    
+    5. Use the EF Rsync Script Generator algorithm to create and rsync.sh file.
+    
+    6. Download the rsync.sh file to yoru local computer.
+    
+    7. Using an identifiable name, upload the rsync.sh file to text-analysis-htrc/etc.
+    
+    8. Build your collection:
+    
+         ./bin/build-corpus.sh mycollection ./etc/rsync-mycollection.sh
+    
+    9. Peruse the newly created files:
+
+         cd ./collections/mycollecton; ls -al
   
 Requirements
 
@@ -128,4 +159,4 @@ Eric Lease Morgan, Librarian
 University of Notre Dame
 emorgan@nd.edu
 
-June 2, 2015
+March 1, 2018
