@@ -2,11 +2,11 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
 <title>
-##TITLE## catalog
+##TITLE## search results
 </title>
-<link rel="stylesheet" type="text/css" href="../../etc/javascript/jquery.dataTables.css" /> 
-<script type="text/javascript" language="javascript" src="../../etc/javascript/jquery-1.11.1.min.js"></script> 
-<script type="text/javascript" language="javascript" src="../../etc/javascript/jquery.dataTables.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="../etc/javascript/jquery.dataTables.css" /> 
+<script type="text/javascript" language="javascript" src="../etc/javascript/jquery-1.11.1.min.js"></script> 
+<script type="text/javascript" language="javascript" src="../etc/javascript/jquery.dataTables.min.js"></script> 
 <style>
 th, td { white-space: nowrap; }
 </style>
@@ -49,11 +49,14 @@ $(document).ready(function() {
             { "data": "pages" },
             { "data": "words" },
             { "data": "language" },
+            { "data": "count" },
+            { "data": "tfidf" },
             { "data": "color" },
             { "data": "names" },
             { "data": "ideas" }
+
         ],
-        "order": [[1, 'asc']]
+        "order": [[7, 'desc']]
     } );
      
     $('a.toggle-vis').on( 'click', function (e) {
@@ -61,7 +64,7 @@ $(document).ready(function() {
  
         // Get the column API object
         var column = table.column( $(this).attr('data-column') );
- 
+
         // Toggle the visibility
         column.visible( ! column.visible() );
     } );
@@ -87,7 +90,7 @@ $(document).ready(function() {
 </head>
 <body>
 <h1>
-##TITLE## catalog
+##TITLE## search results
 </h1>
 <div>
 Toggle columns: &nbsp; 
@@ -96,9 +99,11 @@ Toggle columns: &nbsp;
 <a class="toggle-vis" data-column="3">Pages</a> &nbsp; 
 <a class="toggle-vis" data-column="4">Words</a> &nbsp; 
 <a class="toggle-vis" data-column="5">Language</a> &nbsp; 
-<a class="toggle-vis" data-column="6">Color</a> &nbsp; 
-<a class="toggle-vis" data-column="7">Names</a> &nbsp; 
-<a class="toggle-vis" data-column="8">Ideas</a>
+<a class="toggle-vis" data-column="6">Count</a> &nbsp; 
+<a class="toggle-vis" data-column="7">TFIDF</a>  &nbsp; 
+<a class="toggle-vis" data-column="8">Color</a> &nbsp; 
+<a class="toggle-vis" data-column="9">Names</a> &nbsp; 
+<a class="toggle-vis" data-column="10">Ideas</a> 
 				</div>
 				<div id="dataTables_wrapper">
 <table id="catalog" class="display compact" cellspacing="0" width="100%">
@@ -110,6 +115,8 @@ Toggle columns: &nbsp;
                 <th>Pages</th>
                 <th>Words</th>
                 <th>Language</th>
+                <th>Count</th>
+                <th>TFIDF</th>
                 <th>Color</th>
                 <th>Names</th>
                 <th>Ideas</th>

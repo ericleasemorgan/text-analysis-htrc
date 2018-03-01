@@ -3,8 +3,9 @@
 # search.py - given a word and an index, return a list of relevancy ranked identifiers whose document contains the word
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# May 21, 2015 - first cut
-# May 27, 2015 - merged search results with "catalog"; added local json and text links
+# May 21, 2015  - first cut
+# May 27, 2015  - merged search results with "catalog"; added local json and text links
+# March 1, 2018 - added collections directory
 
 
 # configure
@@ -35,7 +36,7 @@ total_documents = 0;
 hits            = {};
 
 # process each (database) file in the given directory
-for filename in glob.glob( directory + '/index/*.db' ) :
+for filename in glob.glob( './collections/' + directory + '/index/*.db' ) :
 	
 	# increment
 	total_documents += 1
@@ -117,7 +118,7 @@ for key in sorted( hits ) :
 	hits[ key ][ 'tfidf' ] = tfidf
 
 # update the list of keys in the hits with its metadata
-with open( directory + CATALOG ) as DATABASE :
+with open( './collections/' + directory + CATALOG ) as DATABASE :
 
 		# initialize the pointer
 		pointer = 0
@@ -174,8 +175,8 @@ for key in sorted( hits ) :
 	key = re.sub( '/', '=', key )
 
 	# define the local json and text versions
-	text = directory + TEXT + key + '.txt'
-	json = directory + JSON + key + '.json'
+	text = './collections/' + directory + TEXT + key + '.txt'
+	json = './collections/' + directory + JSON + key + '.json'
 	
 	# echo: key count size tfidf title date pages hathitrust language marc worldcat color names ideas text json
 	print ( key + '\t' + str( count) + '\t' + str( size ) + '\t' + str( tfidf ) + '\t' + title + '\t' + date + '\t' + pages + '\t' + hathitrust + '\t' + language + '\t' + marc + '\t' + worldcat + '\t' + color + '\t' + names + '\t' + ideas + '\t' + text + '\t' + json )

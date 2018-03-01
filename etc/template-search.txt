@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Search</title></head>
+<body style='margin: 5%'>
+<h1>Search</h1>
+<p>Use this form to search the corpus. The search engine only supports single-word queries. Examples include: <a href="./search.cgi?q=art">art</a>, <a href="./search.cgi?q=science">science</a>, <a href="./search.cgi?q=knowledge">knowledge</a>, and <a href="./search.cgi?q=love">love</a>.</p>
+<form method='GET' action='./search.cgi'>
+<input type='text' name='q' />
+<input type='submit' value='Search' />
+</form>
+<hr />
+<p style='text-align: right'>Eric Lease Morgan, Librarian<br />
+University of Notre Dame</p>
+</body>
+</html>

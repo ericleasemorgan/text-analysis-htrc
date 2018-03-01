@@ -3,8 +3,9 @@
 # results2text.py - format search results as a stream of plain text
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# May 27, 2015 - first cut
-# June 2, 2015 - added sanity checking
+# May 27, 2015  - first cut
+# June 2, 2015  - added sanity checking
+# March 1, 2018 - delimited search results
 
 
 # require
@@ -59,7 +60,7 @@ for hit in sys.stdin:
 	print( '               MARC: ' +      fields[  9 ] )
 	print( '               text: ' +      fields[ 14 ] )
 	print( '               JSON: ' +      fields[ 15 ] )
-	print
+	print()
 
 # done
 quit()

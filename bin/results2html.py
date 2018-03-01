@@ -19,7 +19,7 @@ import re
 
 # sanity check
 if ( len( sys.argv ) != 2 ) | ( sys.stdin.isatty() ) :
-	print "Usage: ./bin/search.py <query> <name> | " + sys.argv[ 0 ] + ' <name>'
+	print ( "Usage: ./bin/search.py <query> <name> | " + sys.argv[ 0 ] + ' <name>' )
 	quit()
 
 # get input
@@ -68,7 +68,7 @@ html = re.sub( '##TITLE##', name, html )
 html = re.sub( '##DATA##',  data, html )
 
 # output and done
-print html
+print ( html )
 quit()
 
 
