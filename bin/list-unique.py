@@ -12,7 +12,7 @@ import sys
 
 # sanity check
 if sys.stdin.isatty() :
-	print "Usage: cat <name>/dictionary.db |", sys.argv[ 0 ]
+	print ("Usage: cat <name>/dictionary.db |", sys.argv[ 0 ] )
 	quit()
 
 # initialize

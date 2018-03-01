@@ -21,7 +21,7 @@ import json
 
 # sanity check
 if ( len( sys.argv ) != 2 ) | ( sys.stdin.isatty() ) :
-	print "Usage: cat <json> |", sys.argv[ 0 ], '<-b|-d>'
+	print ("Usage: cat <json> |", sys.argv[ 0 ], '<-b|-d>')
 	quit()
 
 # get input; sanity check
@@ -31,13 +31,13 @@ flag = sys.argv[ 1 ]
 if   flag == '-b' : build_book = 1
 elif flag == '-d' : build_book = 0
 else :
-	print "Usage: cat <json> |", sys.argv[ 0 ], '<-b|-d>'
+	print ("Usage: cat <json> |", sys.argv[ 0 ], '<-b|-d>')
 	quit()
 
 # initialize 
 json      = json.load( sys.stdin )
 words     = {}
-book      = ( json[ 'metadata' ][ 'title' ] ).encode( 'utf-8' ) + '\t' + ( json[ 'metadata' ][ 'handleUrl' ] ).encode( 'utf-8' ) + '\n'
+book      = ( json[ 'metadata' ][ 'title' ] ) + '\t' + ( json[ 'metadata' ][ 'handleUrl' ] ) + '\n'
 
 # create a list of (English) stopwords
 stopwords = {}
@@ -59,7 +59,7 @@ for page in pages :
 		if word in stopwords         : continue
 		
 		# build text file
-		if build_book : book = book + word.encode( 'utf-8' ) + ' ' 
+		if build_book : book = book + word + ' ' 
 			
 		# or build dictionary
 		else :
@@ -72,12 +72,12 @@ for page in pages :
 	if build_book : book = book + '\n\n'
 	
 # output book, or
-if build_book : print re.sub( '\n\n+', '\n\n', book )
+if build_book : print (re.sub( '\n\n+', '\n\n', book ))
 
 # output the dictionary
 else :
 	for tuple in sorted( words.items(), key=operator.itemgetter( 1 ), reverse=True ) :
-		print( tuple[ 0 ].encode( 'utf-8' ) + '\t' + str( tuple[ 1 ] ) )
+		print( tuple[ 0 ] + '\t' + str( tuple[ 1 ] ) )
 
 # done
 quit()

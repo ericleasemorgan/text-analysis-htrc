@@ -12,7 +12,7 @@ import glob
 
 # sanity check
 if len( sys.argv ) != 2 :
-	print "Usage:", sys.argv[ 0 ], '<name>'
+	print ("Usage:", sys.argv[ 0 ], '<name>' )
 	quit()
 
 # initialize

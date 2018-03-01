@@ -12,7 +12,7 @@ import sys
 
 # sanity check
 if sys.stdin.isatty() :
-	print "Usage: ./bin/search.py <query> <name> | " + sys.argv[ 0 ] 
+	print ("Usage: ./bin/search.py <query> <name> | " + sys.argv[ 0 ] )
 	quit()
 	
 # initialize

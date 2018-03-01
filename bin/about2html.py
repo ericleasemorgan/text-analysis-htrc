@@ -21,7 +21,7 @@ import re
 
 # sanity check
 if len( sys.argv ) != 2 :
-	print "Usage: " + sys.argv[ 0 ] + ' <name>'
+	print ("Usage: " + sys.argv[ 0 ] + ' <name>')
 	quit()
 
 
@@ -236,7 +236,7 @@ html = re.sub( '##COLORSMOST##',     colorsmost,                  html )
 html = re.sub( '##COLORSLEAST##',    colorsleast,                 html )
 
 # output and done
-print html
+print (html)
 quit()
 
 

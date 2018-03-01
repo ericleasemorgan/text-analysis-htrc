@@ -12,25 +12,38 @@ JSON2FREQUENCY=./bin/make-index.py
 
 # get input
 NAME=$1
+JSON=$2
 
-# sanity check
-if [ -z $NAME ]; then
+# parse out the KEY and echo
+KEY=$( basename $JSON .json )
+echo "indexing $JSON"
 
-    echo "Usage: $0 <name>"
-    exit 1
-    
+# do the work
+
+
+
+if [ -f "$NAME/index/$KEY.db" ]; then
+
+	echo "$NAME/index/$KEY.db exists" >&2
+	
+else
+
+	# do the work
+	cat $JSON | $JSON2FREQUENCY -d > $NAME/index/$KEY.db
+
 fi
 
-# process each json file in the given directory
-for FILE in $NAME/json/*.json
-do
-    
-    # parse out the KEY and echo
-    KEY=$( basename $FILE .json )
-    echo "indexing $FILE"
+if [ -f "$NAME/text/$KEY.txt" ]; then
+
+	echo "$NAME/text/$KEY.txt exists" >&2
 	
+else
+
 	# do the work
-	cat $FILE | $JSON2FREQUENCY -d > $NAME/index/$KEY.db
-	cat $FILE | $JSON2FREQUENCY -b > $NAME/text/$KEY.txt
+	cat $JSON | $JSON2FREQUENCY -b > $NAME/text/$KEY.txt
+
+fi
+
 	
-done
+
+

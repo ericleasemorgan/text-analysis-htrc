@@ -13,7 +13,7 @@ import operator
 
 # sanity check
 if len( sys.argv ) != 4 :
-	print "Usage:", sys.argv[ 0 ], '<-i|-v> <file> <lexicon>'
+	print ("Usage:", sys.argv[ 0 ], '<-i|-v> <file> <lexicon>')
 	quit()
 
 # get input; sanity check
@@ -25,7 +25,7 @@ lexicon = sys.argv[ 3 ]
 if   flag == '-i' : verbose = 0
 elif flag == '-v' : verbose = 1 
 else :
-	print "Usage:", sys.argv[ 0 ], '<-i|-v> <file> <lexicon>'
+	print ("Usage:", sys.argv[ 0 ], '<-i|-v> <file> <lexicon>')
 	quit()
 
 # read the lexicon
@@ -64,12 +64,12 @@ if verbose :
 else :
 
 	# division by zero is a bad thing
-	if total_words == 0 : print '0'
+	if total_words == 0 : print ('0')
 	
 	else :
 	
 		# calculate simple quotient
-		print( float( total_lexicon ) / float( total_words ) ) * 100
+		print( float( total_lexicon ) / float( total_words )  * 100 )
 	
 # done
 quit()

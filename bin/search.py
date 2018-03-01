@@ -23,7 +23,7 @@ import operator
 
 # sanity check
 if len( sys.argv ) != 3 :
-	print "Usage" + sys.argv[ 0 ] + ' <query> <name>'
+	print ("Usage" + sys.argv[ 0 ] + ' <query> <name>')
 	quit()
 
 # get input; sanity check
@@ -107,11 +107,11 @@ for key in sorted( hits ) :
 	if DEBUG :
 
 		# echo
-		print 'filename: ' + key
-		print '   count: ' + str( n )
-		print '    size: ' + str( t )
-		print '   tfidf: ' + str( tfidf )
-		print ''
+		print ('filename: ' + key )
+		print ( '   count: ' + str( n ) )
+		print ( '    size: ' + str( t ) )
+		print ( '   tfidf: ' + str( tfidf ) )
+		print ( '' )
 
 	# update
 	hits[ key ][ 'tfidf' ] = tfidf
@@ -178,7 +178,7 @@ for key in sorted( hits ) :
 	json = directory + JSON + key + '.json'
 	
 	# echo: key count size tfidf title date pages hathitrust language marc worldcat color names ideas text json
-	print key + '\t' + str( count) + '\t' + str( size ) + '\t' + str( tfidf ) + '\t' + title + '\t' + date + '\t' + pages + '\t' + hathitrust + '\t' + language + '\t' + marc + '\t' + worldcat + '\t' + color + '\t' + names + '\t' + ideas + '\t' + text + '\t' + json
+	print ( key + '\t' + str( count) + '\t' + str( size ) + '\t' + str( tfidf ) + '\t' + title + '\t' + date + '\t' + pages + '\t' + hathitrust + '\t' + language + '\t' + marc + '\t' + worldcat + '\t' + color + '\t' + names + '\t' + ideas + '\t' + text + '\t' + json )
 
 # done
 quit()

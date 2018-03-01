@@ -15,7 +15,7 @@ total = 0
 
 # sanity check
 if ( len( sys.argv ) != 1 ) | ( sys.stdin.isatty() ) :
-	print "Usage: cat <db> |", sys.argv[ 0 ]
+	print ("Usage: cat <db> |", sys.argv[ 0 ])
 	quit()
 
 # process each line from standard input
