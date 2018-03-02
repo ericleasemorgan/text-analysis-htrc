@@ -9,7 +9,7 @@
 
 # configure
 ROOT='/home/dcuser/text-analysis-htrc'
-MALLET="$ROOT/local/mallet"
+MALLET="/opt/applications/mallet-2.0.8"
 MODEL="$ROOT/tmp/data.mallet"
 TOPICS="$ROOT/tmp/topics.txt"
 KEYS="$ROOT/tmp/keys.txt"

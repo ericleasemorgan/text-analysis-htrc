@@ -46,7 +46,7 @@ with open( database ) as f :
 		index    = values.pop( 0 )
 		document = values.pop( 0 )	
 		documents.append( document )
-		for topic, share in grouper( 2, values ) : triples.append( ( document, int( topic ), float( share ) ) )
+		for topic, share in grouper( 2, values ) : triples.append( ( document, topic, float( share ) ) )
 
 triples    = sorted( triples, key=operator.itemgetter( 0, 1 ) )
 documents  = sorted( documents )
