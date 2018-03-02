@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # topic-model.py - given a directory of plain text files, compute t topics with d dimensions exemplified by f files
 # see -> https://medium.com/@aneesha/topic-modeling-with-scikit-learn-e80d33668730
@@ -40,6 +40,7 @@ features = vectorizer.get_feature_names()
 for item, topic in enumerate( model.components_ ) :
 	
 	# output most significant topic word(s)
+	i = 0
 	print( '  * ' + "; ".join( [ features[ i ] for i in topic.argsort()[ :-dimensions - 1:-1 ] ] ) )
 	
 	# output file names ordered by significance with the given feature, "Thanks Jason Thomale!"
@@ -50,7 +51,7 @@ for item, topic in enumerate( model.components_ ) :
 		print( '    o ' + filenames[ rankings[ r ][ 0 ] ] )
 	
 	# delimit
-	print
+	print()
 
 # done
 exit()
