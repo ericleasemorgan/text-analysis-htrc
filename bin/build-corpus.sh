@@ -43,7 +43,7 @@ rm ./collections/$NAME/json/*.bz2
 
 
 # stage #2 - create the index
-find ./collections/$NAME/json -name '*.json' | parallel ./bin/make-index.sh $NAME {}
+find ./collections/$NAME/json -name '*.json' -exec ./bin/make-index.sh $NAME {} \;
 
 # make dictionary
 ./bin/make-dictionary.py ./collections/$NAME/index/ > ./collections/$NAME/dictionary.db
